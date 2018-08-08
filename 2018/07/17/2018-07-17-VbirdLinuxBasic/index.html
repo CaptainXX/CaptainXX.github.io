@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="鸟哥的Linux私房菜——学习笔记 本学习笔记是本人在鸟哥的Linux私房菜学习的全部笔记。 笔记内容自2018/07/13起按时间递增，最新的笔记将在最上方显示。   2018-8-7累积备份和差异备份 完整累积备份 第一次完整备份后，就只备份与当前系统有差异的部分 使用dd, cpio, xfsdump/xfsrestore 完整差异备份 第一次完整备份后，就只备份与第一次备份有差异的部分 工">
+<meta name="description" content="鸟哥的Linux私房菜——学习笔记 本学习笔记是本人在鸟哥的Linux私房菜学习的全部笔记。 笔记内容自2018/07/13起按时间递增，最新的笔记将在最上方显示。   2018-8-8为什么使用make： wget -nd http://linux.vbird.org/linux_basic/0520source/main.tgz 解压后获取四个C语言文件，用gcc编译 123456gcc -c">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="鸟哥的Linux私房菜">
 <meta property="og:url" content="http://yoursite.com/2018/07/17/2018-07-17-VbirdLinuxBasic/index.html">
 <meta property="og:site_name" content="CaptainX">
-<meta property="og:description" content="鸟哥的Linux私房菜——学习笔记 本学习笔记是本人在鸟哥的Linux私房菜学习的全部笔记。 笔记内容自2018/07/13起按时间递增，最新的笔记将在最上方显示。   2018-8-7累积备份和差异备份 完整累积备份 第一次完整备份后，就只备份与当前系统有差异的部分 使用dd, cpio, xfsdump/xfsrestore 完整差异备份 第一次完整备份后，就只备份与第一次备份有差异的部分 工">
+<meta property="og:description" content="鸟哥的Linux私房菜——学习笔记 本学习笔记是本人在鸟哥的Linux私房菜学习的全部笔记。 笔记内容自2018/07/13起按时间递增，最新的笔记将在最上方显示。   2018-8-8为什么使用make： wget -nd http://linux.vbird.org/linux_basic/0520source/main.tgz 解压后获取四个C语言文件，用gcc编译 123456gcc -c">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/Vbird/16-1.1.png">
 <meta property="og:image" content="http://yoursite.com/images/Vbird/13-5.1.png">
@@ -155,10 +155,10 @@
 <meta property="og:image" content="http://yoursite.com/images/Vbird/5-2.2.png">
 <meta property="og:image" content="http://yoursite.com/images/Vbird/5-2.3.png">
 <meta property="og:image" content="http://yoursite.com/images/Vbird/5-2.4.png">
-<meta property="og:updated_time" content="2018-08-07T11:09:44.022Z">
+<meta property="og:updated_time" content="2018-08-08T10:10:19.810Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="鸟哥的Linux私房菜">
-<meta name="twitter:description" content="鸟哥的Linux私房菜——学习笔记 本学习笔记是本人在鸟哥的Linux私房菜学习的全部笔记。 笔记内容自2018/07/13起按时间递增，最新的笔记将在最上方显示。   2018-8-7累积备份和差异备份 完整累积备份 第一次完整备份后，就只备份与当前系统有差异的部分 使用dd, cpio, xfsdump/xfsrestore 完整差异备份 第一次完整备份后，就只备份与第一次备份有差异的部分 工">
+<meta name="twitter:description" content="鸟哥的Linux私房菜——学习笔记 本学习笔记是本人在鸟哥的Linux私房菜学习的全部笔记。 笔记内容自2018/07/13起按时间递增，最新的笔记将在最上方显示。   2018-8-8为什么使用make： wget -nd http://linux.vbird.org/linux_basic/0520source/main.tgz 解压后获取四个C语言文件，用gcc编译 123456gcc -c">
 <meta name="twitter:image" content="http://yoursite.com/images/Vbird/16-1.1.png">
 
 
@@ -450,7 +450,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  54,379 字
+                  56,328 字
                 </span>
               
 
@@ -466,7 +466,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  214 分钟
+                  222 分钟
                 </span>
               
             </div>
@@ -491,6 +491,157 @@
 <li>本学习笔记是本人在<a href="http://linux.vbird.org/" target="_blank" rel="noopener">鸟哥的Linux私房菜</a>学习的全部笔记。</li>
 <li>笔记内容自2018/07/13起按时间递增，最新的笔记将在最上方显示。</li>
 </ul>
+<hr>
+<h3 id="2018-8-8"><a href="#2018-8-8" class="headerlink" title="2018-8-8"></a>2018-8-8</h3><p>为什么使用make：</p>
+<p><code>wget -nd http://linux.vbird.org/linux_basic/0520source/main.tgz</code></p>
+<p>解压后获取四个C语言文件，用gcc编译</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gcc -c main.c</span><br><span class="line">gcc -c haha.c</span><br><span class="line">gcc -c sin_value.c</span><br><span class="line">gcc -c cos_value.c</span><br><span class="line"></span><br><span class="line">gcc -o main main.o haha.o sin_value.o cos_value.o -lm</span><br></pre></td></tr></table></figure>
+<p>使用make来编译，先建立名为makefile的文件：</p>
+<p><code>vim makefile</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">main: main.o haha.o sin_value.o cos_value.o</span><br><span class="line">	gcc -o main main.o haha.o sin_value.o cos_value.o -lm</span><br></pre></td></tr></table></figure>
+<p>Makefile语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Target: object1 object2</span><br><span class="line">&lt;tab&gt;	gcc -o binaryfile object1 object2</span><br><span class="line">&lt;tab&gt;	other commands</span><br></pre></td></tr></table></figure></p>
+<p>make编译一次后，如果有更改源码，再重新进行一次make就可以更新binary文件了</p>
+<p>环境变量：CFLAGS等</p>
+<p>赋予方式：</p>
+<ol>
+<li><code>CFLAGS=&quot;-Wall&quot; make clean main</code></li>
+<li>在makefile中加上<code>CFLAGS = -Wall</code></li>
+<li>也可以直接读取当前shell环境的环境变量</li>
+</ol>
+<p>优先级：make命令中加入的 &gt; makefile中指定的 &gt; shell的环境变量</p>
+<p>特殊变量：<code>$@</code>，在makefile中代表前面的Target</p>
+<p>Tarball软件安装和管理</p>
+<p>源码编译所需要的基础软件：</p>
+<ul>
+<li>gcc等编译器（C compiler）</li>
+<li>make、autoconfig等软件</li>
+<li>Kernel提供的函数库以及相关的Include文件，尤其是驱动程序需要的模组</li>
+</ul>
+<p>目前的Linux distribution预设一般是没有安装gcc或者make等软件的，CentO S或RedHat中可以选择Development Tools或是Kernel Source Development等软件包安装</p>
+<p>CentOS和RedHat都可以使用RPM来安装软件，在有网络连接的情况下也可以使用yum来安装</p>
+<p>yum有软件群组安装功能</p>
+<ul>
+<li>安装gcc等软件开发工具<code>yum groupinstall &quot;Development Tools&quot;</code></li>
+<li>若待安装的软件需要图形界面支持<code>yum groupinstall &quot;X Software Development&quot;</code></li>
+<li>若安装的软件较旧，可以<code>yum groupinstall &quot;Legacy Software Development&quot;</code></li>
+</ul>
+<p>具体在下一章有，下面还是来看Tarball</p>
+<p>Tarball的安装流程：</p>
+<ul>
+<li>tar解压到/usr/local/src</li>
+<li>进入目录，查询INSTALL文件或README文件</li>
+<li>使用configure或config侦测环境，建立makefile</li>
+<li>make编译</li>
+<li>用make和Makefile的参数设定，依据install这个target来安装到正确的路径</li>
+</ul>
+<p>指令下达方式：</p>
+<ul>
+<li><code>./configure</code>，建立Makefile</li>
+<li><code>make clean</code>，清除一下object file</li>
+<li><code>make</code>依据Makefile中预设的工作进行编译。一般是编译产生object files</li>
+<li><code>make install</code>最后的安装步骤，将上一步编译完成的文件安装到指定目录</li>
+</ul>
+<p>上述指令必须是依序进行的，如果上一步执行不成功，下一步也无法执行</p>
+<p>软件安装常用目录：</p>
+<p>以Apache为例：</p>
+<ul>
+<li>/etc/httpd</li>
+<li>/usr/lib</li>
+<li>/usr/bin</li>
+<li>/usr/share/man</li>
+</ul>
+<p>内容大致在etc, lib, bin, man等目录中，分别对应设定文件，函数库，可执行文件，线上说明文件</p>
+<p>如果你用Tarball来安装，放在/usr/local中，你的资料会放在：</p>
+<ul>
+<li>/usr/local/etc</li>
+<li>/usr/local/bin</li>
+<li>/usr/local/lib</li>
+<li>/usr/local/man</li>
+</ul>
+<p>如果安装的软件多了的话，升级或是移除就比较难以查询文件来源，如果安装的单独的目录，就会在这个目录中创建 etc, bin, lib, man四个目录，如</p>
+<ul>
+<li>/usr/local/apache/etc</li>
+<li>/usr/local/apache/bin</li>
+<li>/usr/local/apache/lib</li>
+<li>/usr/local/apache/man</li>
+</ul>
+<p>这样只要删除这个文件夹，就可以删除软件了，但是实际安装时，还是需要查看Makefile里面的install信息。</p>
+<p>但是这样的操作虽然简化了删除，却会让命令下达时必须使用绝对路径。</p>
+<p>在多个相依程序安装和更新上，使用Tarball也会面临更新一个程序就需要重新把所有相依程序都编译一遍的问题。</p>
+<p>这就是使用Tarball弊端，在卸载上有一些难度，为了方便Tarball管理，鸟哥建议：</p>
+<ul>
+<li>将Tarball的源码解压到/usr/local/src目录中</li>
+<li>安装时，最好安装到/usr/local这个预设路径下</li>
+<li>考虑到未来的反安装，最好把每个软件单独在/usr/local安装</li>
+<li>为安装到单独目录的软件的man page加入man path：<ul>
+<li><code>vim /etc/man_db.conf</code></li>
+<li><code>40G</code></li>
+<li>添加<code>MANPATH_MAP /usr/local/software/bin /usr/local/software/man</code></li>
+</ul>
+</li>
+</ul>
+<p>INSTALL或README一定要仔细阅读，查看./configure的选项也很重要</p>
+<p>利用patch更新源码</p>
+<p><code>patch -pN &lt; patchfile</code>这个N指的是要更新的文件所在目录，与patchfile所在目录差几级</p>
+<p>例如：要更新的文件绝对路径为 /home/guest/file2update</p>
+<p>-p1 就表示 home/guest/file2update</p>
+<p>-p2 就表示 guest/file2update</p>
+<p>-p3 就表示file2update</p>
+<p>函数库管理</p>
+<p>动态Dynamic与静态Static函数库</p>
+<p>静态函数库的特点：</p>
+<ul>
+<li>扩展名：<code>.a</code></li>
+<li>编译行为：会直接整合到可执行文件中，因此会扩大可执行文件</li>
+<li>可独立执行：编译后的可执行文件可以独立执行，不需要向外部要求读取函数库内容</li>
+<li>升级较困难：函数库升级后，所有调用了此函数库的程序都要重新编译</li>
+</ul>
+<p>动态函数库的特点：</p>
+<ul>
+<li>扩展名：<code>.so</code></li>
+<li>编译行为：程序里只有一个指针来指向函数库位置。程序使用到函数库时才会调用</li>
+<li>不能被独立执行，需要有函数库的支持</li>
+<li>升级函数库后不需要重新编译程序</li>
+</ul>
+<p>目前的Linux distribution大多使用动态函数库</p>
+<p>大多数函数库的位置在：/lib64, /lib目录下，kernel的函数库放置在 /lib/modules里面</p>
+<p>将动态函数库载入内存：</p>
+<ol>
+<li>在 /etc/ld.so.conf 里面加入需要载入内存的动态函数库所在目录</li>
+<li><code>ldconfig</code>来将 /etc/ld.so.conf中的信息读入内存</li>
+<li>同时记录一份资料在 /etc/ld.so.cache 中</li>
+</ol>
+<p><code>ldconfig [-f conf] [-C cache]</code></p>
+<p>-f 以后面接的文件作为函数库的路径，而不是/etc/ld.so.conf</p>
+<p>-C 以后就接的文件作为 内存的函数库资料，而不是 /etc/ld.so.cache</p>
+<p><code>ldconfig [-p]</code></p>
+<p>-p 列出目前有的所有函数库资料内容</p>
+<p>查看程序的动态函数库或者查看和某个函数相关的其他函数库：</p>
+<p><code>ldd [-vdr] filename</code></p>
+<p>-v verbose</p>
+<p>-d 重新将信息有遗失的link点显示出来</p>
+<p>-r 将ELF有关的错误内容显示出来</p>
+<p>验证软件的正确性：指纹验证。</p>
+<p><code>md5sum / sha1sum / sha256sum [-bct] filename</code></p>
+<p>-b 使用binary的读取方式，预设是 Windows/DOS文件形态的读取方式</p>
+<p>-c 检验文件指纹</p>
+<p>-t 以文字形式读取文件指纹</p>
+<p><code>md5sum / sha1sum / sha256sum [--status|--warn] --check filename</code></p>
+<p>你必须要在你的Linux上面为你的重要文件进行指纹资料库建立。</p>
+<ul>
+<li>/etc/passwd</li>
+<li>/etc/shadow</li>
+<li>/etc/group</li>
+<li>/usr/bin/passwd</li>
+<li>/sbin/rpcbind</li>
+<li>/bin/login</li>
+<li>/bin/ls</li>
+<li>/bin/ps</li>
+<li>/bin/top</li>
+</ul>
+<p>这几个文件最容易被修改了，建议建立MD5指纹库，定期以shell script的方式由程序来检查指纹是否正常</p>
+<p>下面是我自己写的脚本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment">#Program:</span></span><br><span class="line"><span class="comment"># 	This Program is used to  and check the MD5 prints of file: /etc/passwd /etc/shadow /etc/group /usr/bin/passwd /sbin/rpcbind /bin/login /bin/ls /bin/ps /bin/top</span></span><br><span class="line"><span class="comment"># History:</span></span><br><span class="line"><span class="comment"># 2018/08/08	Captainxu	First release</span></span><br><span class="line"></span><br><span class="line">PATH=/usr/<span class="built_in">local</span>/bin:/usr/<span class="built_in">local</span>/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/home/captainxu/.<span class="built_in">local</span>/bin:/home/captainxu/bin</span><br><span class="line"><span class="built_in">export</span> PATH</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$0</span> start to funcion..."</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ ! -f /root/md5prints ];<span class="keyword">then</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">"This is the first time when this script is used!"</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">"A file named '/root/md5prints' will be established as the original data."</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">"This script will use this original data to compare the MD5 code of several important files."</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">"To make sure that your important files had not been changed by some bad guys."</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">"Creating files..."</span></span><br><span class="line">	touch /root/md5prints</span><br><span class="line">	<span class="keyword">for</span> file <span class="keyword">in</span> /etc/passwd /etc/shadow /etc/group /usr/bin/passwd /sbin/rpcbind /bin/login /bin/ls /bin/ps /bin/top</span><br><span class="line">	<span class="keyword">do</span></span><br><span class="line">		<span class="built_in">echo</span> $(md5sum <span class="variable">$&#123;file&#125;</span>) &gt;&gt; /root/md5prints</span><br><span class="line">	<span class="keyword">done</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">"DONE!"</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">"I advise you to add this script to your crontab, so that it can sostenuto check the files."</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	<span class="built_in">declare</span> -i i=1</span><br><span class="line">	<span class="keyword">for</span> file <span class="keyword">in</span> /etc/passwd /etc/shadow /etc/group /usr/bin/passwd /sbin/rpcbind /bin/login /bin/ls /bin/ps /bin/top</span><br><span class="line">	<span class="keyword">do</span></span><br><span class="line">		PRINT=$(md5sum <span class="variable">$&#123;file&#125;</span> | cut -d <span class="string">" "</span> -f1)</span><br><span class="line">		FILECONTENT=$(sed -n <span class="string">"<span class="variable">$&#123;i&#125;</span>,1p"</span> /root/md5prints | cut -d <span class="string">" "</span> -f1)</span><br><span class="line">		<span class="built_in">echo</span> <span class="string">"<span class="variable">$&#123;file&#125;</span>:"</span></span><br><span class="line">		<span class="built_in">echo</span> <span class="string">" original:	<span class="variable">$&#123;FILECONTENT&#125;</span>"</span></span><br><span class="line">		<span class="built_in">echo</span> <span class="string">" now:		<span class="variable">$&#123;PRINT&#125;</span>"</span></span><br><span class="line">		[ <span class="string">"<span class="variable">$PRINT</span>"</span> == <span class="string">"<span class="variable">$FILECONTENT</span>"</span>  ] &amp;&amp; <span class="built_in">echo</span> <span class="string">"<span class="variable">$file</span> is OK!"</span> || <span class="built_in">echo</span> <span class="string">"<span class="variable">$file</span> has bad md5!"</span></span><br><span class="line">		((i++))</span><br><span class="line">	<span class="keyword">done</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
 <hr>
 <h3 id="2018-8-7"><a href="#2018-8-7" class="headerlink" title="2018-8-7"></a>2018-8-7</h3><p>累积备份和差异备份</p>
 <p>完整累积备份</p>
@@ -5437,8 +5588,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/16/2018-3-8-WEB/" rel="next" title="web技术基础 —— WIN10 asp.net 环境配置">
-                <i class="fa fa-chevron-left"></i> web技术基础 —— WIN10 asp.net 环境配置
+              <a href="/2018/07/16/2018-06-06-kaliWIFIcrack/" rel="next" title="雕虫小技">
+                <i class="fa fa-chevron-left"></i> 雕虫小技
               </a>
             
           </div>
@@ -5601,7 +5752,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#鸟哥的Linux私房菜——学习笔记"><span class="nav-number">1.</span> <span class="nav-text">鸟哥的Linux私房菜——学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-8-7"><span class="nav-number">1.1.</span> <span class="nav-text">2018-8-7</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第二十一章-软件安装：源码与Tarball"><span class="nav-number">1.1.1.</span> <span class="nav-text">第二十一章 软件安装：源码与Tarball</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-8-6"><span class="nav-number">1.2.</span> <span class="nav-text">2018-8-6</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第二十章-基础系统设置与备份策略"><span class="nav-number">1.2.1.</span> <span class="nav-text">第二十章 基础系统设置与备份策略</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-8-2"><span class="nav-number">1.3.</span> <span class="nav-text">2018-8-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-8-1"><span class="nav-number">1.4.</span> <span class="nav-text">2018-8-1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第十九章-开机流程、模组管理与loader"><span class="nav-number">1.4.1.</span> <span class="nav-text">第十九章 开机流程、模组管理与loader</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-7-31"><span class="nav-number">1.5.</span> <span class="nav-text">2018-7-31</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第十七章-认识系统服务（daemons）"><span class="nav-number">1.5.1.</span> <span class="nav-text">第十七章 认识系统服务（daemons）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第十八章-认识与分析登录档"><span class="nav-number">1.5.2.</span> <span class="nav-text">第十八章 认识与分析登录档</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-7-30"><span class="nav-number">1.6.</span> <span class="nav-text">2018-7-30</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#程序管理与SELinux初探"><span class="nav-number">1.6.1.</span> <span class="nav-text">程序管理与SELinux初探</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-7-28"><span class="nav-number">1.7.</span> <span class="nav-text">2018-7-28</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-7-27"><span class="nav-number">1.8.</span> <span class="nav-text">2018-7-27</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第十五章-例行性工作-crontab"><span class="nav-number">1.8.1.</span> <span class="nav-text">第十五章 例行性工作 crontab</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-7-26"><span class="nav-number">1.9.</span> <span class="nav-text">2018-7-26</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第十四章-磁碟配额-Quota-与进阶文件系统管理"><span class="nav-number">1.9.1.</span> <span class="nav-text">第十四章 磁碟配额(Quota)与进阶文件系统管理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-7-25"><span class="nav-number">1.10.</span> <span class="nav-text">2018-7-25</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-7-24"><span class="nav-number">1.11.</span> <span class="nav-text">2018-7-24</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第十三章-Linux账号管理与ACL权限设置"><span class="nav-number">1.11.1.</span> <span class="nav-text">第十三章 Linux账号管理与ACL权限设置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-7-23"><span class="nav-number">1.12.</span> <span class="nav-text">2018-7-23</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第十二章-学习Shell-Scripts"><span class="nav-number">1.12.1.</span> <span class="nav-text">第十二章 学习Shell Scripts</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-7-21"><span class="nav-number">1.13.</span> <span class="nav-text">2018-7-21</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第十一章-正则表达式和文件格式化处理"><span class="nav-number">1.13.1.</span> <span class="nav-text">第十一章 正则表达式和文件格式化处理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-7-20"><span class="nav-number">1.14.</span> <span class="nav-text">2018-7-20</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-7-19"><span class="nav-number">1.15.</span> <span class="nav-text">2018-7-19</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第九章-vim编辑器！"><span class="nav-number">1.15.1.</span> <span class="nav-text">第九章 vim编辑器！</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第十章-认识与学习BASH"><span class="nav-number">1.15.2.</span> <span class="nav-text">第十章 认识与学习BASH</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-7-18"><span class="nav-number">1.16.</span> <span class="nav-text">2018-7-18</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第七章-Linux磁盘与文件系统管理"><span class="nav-number">1.16.1.</span> <span class="nav-text">第七章 Linux磁盘与文件系统管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第八章-文件与文件系统的压缩、打包与备份"><span class="nav-number">1.16.2.</span> <span class="nav-text">第八章 文件与文件系统的压缩、打包与备份</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-7-17"><span class="nav-number">1.17.</span> <span class="nav-text">2018-7-17</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第六章-Linux文件与目录管理"><span class="nav-number">1.17.1.</span> <span class="nav-text">第六章 Linux文件与目录管理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-7-16"><span class="nav-number">1.18.</span> <span class="nav-text">2018-7-16</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-7-15"><span class="nav-number">1.19.</span> <span class="nav-text">2018-7-15</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第四章-首次登录与线上求助"><span class="nav-number">1.19.1.</span> <span class="nav-text">第四章 首次登录与线上求助</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第五章-Linux的文件权限与目录配置"><span class="nav-number">1.19.2.</span> <span class="nav-text">第五章 Linux的文件权限与目录配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-7-14"><span class="nav-number">1.20.</span> <span class="nav-text">2018-7-14</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第三章-安装CentOS-7-x"><span class="nav-number">1.20.1.</span> <span class="nav-text">第三章 安装CentOS 7.x</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-7-13"><span class="nav-number">1.21.</span> <span class="nav-text">2018-7-13</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一章-Linux是什么与如何学习"><span class="nav-number">1.21.1.</span> <span class="nav-text">第一章 Linux是什么与如何学习</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二章-主机规划与磁盘分区"><span class="nav-number">1.21.2.</span> <span class="nav-text">第二章 主机规划与磁盘分区</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-5-7"><span class="nav-number">1.22.</span> <span class="nav-text">2018-5-7</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-4-26"><span class="nav-number">1.23.</span> <span class="nav-text">2018-4-26</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第零章，计算机概论。"><span class="nav-number">1.23.1.</span> <span class="nav-text">第零章，计算机概论。</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#鸟哥的Linux私房菜——学习笔记"><span class="nav-number">1.</span> <span class="nav-text">鸟哥的Linux私房菜——学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-8-8"><span class="nav-number">1.1.</span> <span class="nav-text">2018-8-8</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-8-7"><span class="nav-number">1.2.</span> <span class="nav-text">2018-8-7</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第二十一章-软件安装：源码与Tarball"><span class="nav-number">1.2.1.</span> <span class="nav-text">第二十一章 软件安装：源码与Tarball</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-8-6"><span class="nav-number">1.3.</span> <span class="nav-text">2018-8-6</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第二十章-基础系统设置与备份策略"><span class="nav-number">1.3.1.</span> <span class="nav-text">第二十章 基础系统设置与备份策略</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-8-2"><span class="nav-number">1.4.</span> <span class="nav-text">2018-8-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-8-1"><span class="nav-number">1.5.</span> <span class="nav-text">2018-8-1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第十九章-开机流程、模组管理与loader"><span class="nav-number">1.5.1.</span> <span class="nav-text">第十九章 开机流程、模组管理与loader</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-7-31"><span class="nav-number">1.6.</span> <span class="nav-text">2018-7-31</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第十七章-认识系统服务（daemons）"><span class="nav-number">1.6.1.</span> <span class="nav-text">第十七章 认识系统服务（daemons）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第十八章-认识与分析登录档"><span class="nav-number">1.6.2.</span> <span class="nav-text">第十八章 认识与分析登录档</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-7-30"><span class="nav-number">1.7.</span> <span class="nav-text">2018-7-30</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#程序管理与SELinux初探"><span class="nav-number">1.7.1.</span> <span class="nav-text">程序管理与SELinux初探</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-7-28"><span class="nav-number">1.8.</span> <span class="nav-text">2018-7-28</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-7-27"><span class="nav-number">1.9.</span> <span class="nav-text">2018-7-27</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第十五章-例行性工作-crontab"><span class="nav-number">1.9.1.</span> <span class="nav-text">第十五章 例行性工作 crontab</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-7-26"><span class="nav-number">1.10.</span> <span class="nav-text">2018-7-26</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第十四章-磁碟配额-Quota-与进阶文件系统管理"><span class="nav-number">1.10.1.</span> <span class="nav-text">第十四章 磁碟配额(Quota)与进阶文件系统管理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-7-25"><span class="nav-number">1.11.</span> <span class="nav-text">2018-7-25</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-7-24"><span class="nav-number">1.12.</span> <span class="nav-text">2018-7-24</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第十三章-Linux账号管理与ACL权限设置"><span class="nav-number">1.12.1.</span> <span class="nav-text">第十三章 Linux账号管理与ACL权限设置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-7-23"><span class="nav-number">1.13.</span> <span class="nav-text">2018-7-23</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第十二章-学习Shell-Scripts"><span class="nav-number">1.13.1.</span> <span class="nav-text">第十二章 学习Shell Scripts</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-7-21"><span class="nav-number">1.14.</span> <span class="nav-text">2018-7-21</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第十一章-正则表达式和文件格式化处理"><span class="nav-number">1.14.1.</span> <span class="nav-text">第十一章 正则表达式和文件格式化处理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-7-20"><span class="nav-number">1.15.</span> <span class="nav-text">2018-7-20</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-7-19"><span class="nav-number">1.16.</span> <span class="nav-text">2018-7-19</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第九章-vim编辑器！"><span class="nav-number">1.16.1.</span> <span class="nav-text">第九章 vim编辑器！</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第十章-认识与学习BASH"><span class="nav-number">1.16.2.</span> <span class="nav-text">第十章 认识与学习BASH</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-7-18"><span class="nav-number">1.17.</span> <span class="nav-text">2018-7-18</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第七章-Linux磁盘与文件系统管理"><span class="nav-number">1.17.1.</span> <span class="nav-text">第七章 Linux磁盘与文件系统管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第八章-文件与文件系统的压缩、打包与备份"><span class="nav-number">1.17.2.</span> <span class="nav-text">第八章 文件与文件系统的压缩、打包与备份</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-7-17"><span class="nav-number">1.18.</span> <span class="nav-text">2018-7-17</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第六章-Linux文件与目录管理"><span class="nav-number">1.18.1.</span> <span class="nav-text">第六章 Linux文件与目录管理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-7-16"><span class="nav-number">1.19.</span> <span class="nav-text">2018-7-16</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-7-15"><span class="nav-number">1.20.</span> <span class="nav-text">2018-7-15</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第四章-首次登录与线上求助"><span class="nav-number">1.20.1.</span> <span class="nav-text">第四章 首次登录与线上求助</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第五章-Linux的文件权限与目录配置"><span class="nav-number">1.20.2.</span> <span class="nav-text">第五章 Linux的文件权限与目录配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-7-14"><span class="nav-number">1.21.</span> <span class="nav-text">2018-7-14</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第三章-安装CentOS-7-x"><span class="nav-number">1.21.1.</span> <span class="nav-text">第三章 安装CentOS 7.x</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-7-13"><span class="nav-number">1.22.</span> <span class="nav-text">2018-7-13</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一章-Linux是什么与如何学习"><span class="nav-number">1.22.1.</span> <span class="nav-text">第一章 Linux是什么与如何学习</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二章-主机规划与磁盘分区"><span class="nav-number">1.22.2.</span> <span class="nav-text">第二章 主机规划与磁盘分区</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-5-7"><span class="nav-number">1.23.</span> <span class="nav-text">2018-5-7</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-4-26"><span class="nav-number">1.24.</span> <span class="nav-text">2018-4-26</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第零章，计算机概论。"><span class="nav-number">1.24.1.</span> <span class="nav-text">第零章，计算机概论。</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
