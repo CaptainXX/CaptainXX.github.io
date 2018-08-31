@@ -83,11 +83,11 @@
 <meta name="keywords" content="Coding">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++ Primer 学习笔记">
-<meta property="og:url" content="http://yoursite.com/2018/08/28/2018-08-26-C++Primer/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/08/31/2018-08-26-C++Primer/index.html">
 <meta property="og:site_name" content="CaptainX">
 <meta property="og:description" content="快要开学了，一年前学的C++在这一年几乎没有怎么用的情况下快要忘光了，那么就顺势以复习C++的名义来开始这本书吧，这必定是一个知新 &amp;gt; 温故的过程T T。  这本书一共有18个章节，从第10章开始介绍对象和类，也是我曾经所上的非计算机类C/C++讲的很少的部分，这一部分的学习可能会比较困难，也比较缓慢。  这一学期的课程比较多，也比较困难，在这里先减去15，16，17三周，用来复习专业的课">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-28T11:45:33.515Z">
+<meta property="og:updated_time" content="2018-08-30T08:50:57.030Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ Primer 学习笔记">
 <meta name="twitter:description" content="快要开学了，一年前学的C++在这一年几乎没有怎么用的情况下快要忘光了，那么就顺势以复习C++的名义来开始这本书吧，这必定是一个知新 &amp;gt; 温故的过程T T。  这本书一共有18个章节，从第10章开始介绍对象和类，也是我曾经所上的非计算机类C/C++讲的很少的部分，这一部分的学习可能会比较困难，也比较缓慢。  这一学期的课程比较多，也比较困难，在这里先减去15，16，17三周，用来复习专业的课">
@@ -120,7 +120,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/28/2018-08-26-C++Primer/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/31/2018-08-26-C++Primer/"/>
 
 
 
@@ -298,7 +298,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/28/2018-08-26-C++Primer/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/31/2018-08-26-C++Primer/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xu">
@@ -327,8 +327,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-28T19:45:33+08:00">
-                2018-08-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-31T13:23:22+08:00">
+                2018-08-31
               </time>
             
 
@@ -381,7 +381,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  6,097 字
+                  12,117 字
                 </span>
               
 
@@ -397,7 +397,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  23 分钟
+                  45 分钟
                 </span>
               
             </div>
@@ -818,9 +818,390 @@
 <li>int</li>
 <li>float</li>
 <li>char</li>
-<li>char32_t</li>
+<li><code>char32_t</code></li>
 <li>double </li>
 </ul>
+<h4 id="2018-08-29"><a href="#2018-08-29" class="headerlink" title="2018-08-29"></a>2018-08-29</h4><h5 id="第四章-复合类型"><a href="#第四章-复合类型" class="headerlink" title="第四章 复合类型"></a>第四章 复合类型</h5><p>本章包括：</p>
+<ul>
+<li>数组、C-风格字符串、String类字符串、使用getline(), get()读取字符串</li>
+<li>混合输入字符串和数字</li>
+<li>结构、共用体、枚举、指针</li>
+<li>new, delete管理动态内存</li>
+<li>动态数组、动态结构</li>
+<li>自动存储、静态存储、动态存储</li>
+<li>vector和array类简介</li>
+</ul>
+<p>内容很丰富，看的时候应该注意和旧的知识做对比，温故而知新。</p>
+<ul>
+<li>数组：能够存储多个同类型的值的数据格式。</li>
+</ul>
+<p>数组声明：</p>
+<ul>
+<li>指出存储的数据类型</li>
+<li>数组名</li>
+<li>数组元素的个数</li>
+</ul>
+<p><code>short months[12];</code></p>
+<p>数组元素的个数必须是确定的：即在编译时就是已知的。</p>
+<p>例如：整型常数，const符号常量，常量表达式如<code>8 * sizeof(int)</code></p>
+<p>不能是变量，因为变量的值是在程序运行时才设置的。本章后会讲到使用new运算符来避开这种限制。</p>
+<p>之前对这里一直不理解，可能也是因为之前不了解程序从源码 -&gt; 编译 -&gt; 连接 -&gt; 可执行文件的过程，在VS上面点一下就可以自动地完成整个过程，程序由源码直接就能运行，所以总是以为在程序里给变量赋值就可以作为数组的大小，这是编程环境的影响啊。</p>
+<p>数组的索引（也就是使用数组元素时中括号里面的数字）从0开始，代表第一个元素。</p>
+<p>C++不会检查索引是否有效，如果把一个值赋值给不存在的元素，编译器不会指出错误，但程序运行后会发生问题。</p>
+<p>数组的初始化：<code>int yams[3] = { 6, 8, 7 };</code></p>
+<p>数组的大小是每个元素的大小乘以数组元素的数量。可以用sizeof返回</p>
+<p>只有在声明数组时才可以用 <code>{}</code>给数组元素赋值，对已经声明的数组，只能通过索引来逐一赋值。</p>
+<p>初始化数组时，如果 <code>{}</code> 内提供的值少于数组的元素，则只初始化了前面的几个元素，后面的元素将被自动设置为 0。</p>
+<p>如果使用下面的命令<code>short total[500] = { 0 }</code>，就可以把整个数组中的所有元素都初始化为0</p>
+<p>如果初始化时，<code>[]</code>内为空，则编译器将计算后面<code>{}</code>中数值的数量，来决定数组中元素的数量，如<code>short things[] = { 1, 2, 3, 4 };</code>这个数组将包含4个元素。</p>
+<p>C++11的数组初始化方法</p>
+<p>对于数组也可以使用列表初始化：</p>
+<ol>
+<li><p><code>double earnings[4] { 1.3e4, 1.6e4, 1.1e4, 1.7e4 };</code>省略等号</p>
+</li>
+<li><p><code>unsigned int count[10] = {};</code>大括号中不包含任何东西，这将把所有元素设置为0，等号也可以省略</p>
+</li>
+<li><p>禁止类型缩窄(narrowing)，例如在int型数组中，用float数值初始化元素</p>
+</li>
+</ol>
+<ul>
+<li>字符串</li>
+</ul>
+<p>C-风格字符串：字符数组，以空字符结尾 ‘\0’，ASCII码值为0，用来标记字符串结尾</p>
+<p>cout打印字符串时，直到遇到空字符才会结束，如果结尾没有空字符，就会把内存中随后的字节都作为要打印的字符，直到遇到空字符为止。</p>
+<p>内存中的空字符很常见，所以这一过程将很快停止。</p>
+<p>字符串的初始化：<code>char bird[] = &quot;Mr. Cheeps&quot;;</code></p>
+<p>不指明字符串的大小，编译器可以自动计算。</p>
+<p>也可以指明字符串的大小，但是必须 &gt;= 字符的数量，如果字符数组长度大于字符串，则多余的元素会被赋值为 ‘\0’</p>
+<p>C++中字符串常量(“”)和字符常量(‘’)不能互换。字符常量的一种编码，ASCII系统中，’S’代表83。而”S”不是字符常量，它是 ‘S’ 和 ‘\0’组成的字符串，实际上”S”代表了字符串开头的内存地址。</p>
+<p><code>char shirt_size = &quot;S&quot;;</code>这一语句试图把一个地址赋值给char变量，是编译器不允许的。</p>
+<p>拼接字符串常量：</p>
+<p>两个用引号括起的字符串，中间有空白（空格,回车,TAB），会合并为一个，前一个字符串的’\0’将被后面一个字符串的第一个字符取代。</p>
+<p>字符串数组</p>
+<p>头文件cstring中的,strlen()函数，可以计算字符串的长度，但是只返回可见的字符，也就是字符串的长度，不计算’\0’，而sizeof计算的是整个字符串数组的长度。</p>
+<p>要存储一个字符串str，字符数组的长度不能少于 strlen( str ) + 1</p>
+<p>如果程序有多条语句使用了数组长度，那么使用符号常量来存储数组长度后，修改数组长度就变得十分简单。</p>
+<ul>
+<li>字符串输入</li>
+</ul>
+<p>使用cin输入字符串时，cin使用空白来确定字符串的结束位置，这样就无法输入带有空白的字符串。</p>
+<p>输入带有空白的字符串时，cin只会读取第一个单词，把它存储进字符串中，其他单词则留在输入队列里，下一次调用cin时，cin就会在输入队列里发现这些单词，并再读取一个单词进入字符串。</p>
+<ul>
+<li>getline()成员函数读取整行，通过回车来确定输入结尾。</li>
+</ul>
+<p><code>cin.getline( str, charactercount );</code></p>
+<ul>
+<li>第一个参数是getline要存储输入的字符串。</li>
+<li>第二个参数是getline将读取的字符个数，’\0’也算，也就是说，要读取20个字符，则应在第二个参数处填上21</li>
+</ul>
+<p>cin.getline()当读取了 指定数目的字符 或 读取到了 换行符 就会停止读取。</p>
+<p>getline()读取到换行符后会丢弃换行符，不保存在输入序列中。</p>
+<ul>
+<li>get()</li>
+</ul>
+<p>get()有多种变体，其中一种和getline()用法相同，但不会丢弃换行符，而是保存在输入队列中。</p>
+<p>因此，在两次连续的cin.get()读取时，第一次输入的换行符会留在输入队列，第二个cin.get()看到的第一个字符就会是换行符，而认为没有字符可以读取，这样就会产生错误。</p>
+<p>使用不带参数的 cin.get() 可以读取下一个字符，可以在第一次读取后调用，来处理掉换行符，以开始下一次读取。</p>
+<p>另一种方法是，使用：<code>cin.get(str, count).get()</code>，可以这样使用的原因是，cin.get(str, count) 返回一个cin对象。</p>
+<p><code>cin.getline(str, count).getline(str2, count2)</code>和调用两次getline相同</p>
+<p>C++允许函数有多个版本，条件是这些版本的参数列表不同，也就是函数的重载。</p>
+<p>cin.getline()使输入更简单，但是老式的实现没有。</p>
+<p>cin.get()使输入更仔细，可以检查停止读取输入的原因，是因为读到了换行符，还是因为达到了数组的边界。</p>
+<p>空行和其他问题:</p>
+<p>get()读取空行后将设置失效位(failbit)，接下来的输入将被阻断。</p>
+<p>可以使用<code>cin.clear();</code>来恢复输入。</p>
+<p>如果输入字符串比分配的空间长，则getline() 和 get()会把余下的字符留在输入队列中，getline还会设置失效位。</p>
+<p>问题将在后面讨论。</p>
+<p>混合输入字符串和数字</p>
+<p>cin读取数字后，会将回车留下的换行符留在输入队列中，后面的getline()看到换行符将会认为这是一个空行，并将一个空字符串赋值给数组。</p>
+<p>所以在cin输入数字后，在调用一次cin.get()解决掉换行符，才能读取字符串。</p>
+<p>可以单独调用一次cin.get，也可以直接<code>(cin &gt;&gt; year).get(ch)</code>，ch可加可不加。</p>
+<p>string类</p>
+<p>要使用，必须包含头文件string，string类位于名称空间std中，必须提供一条using 编译指令或通过std::string来引用。</p>
+<p>在很多方面，string对象的使用和字符数组相同</p>
+<ul>
+<li>可以使用C-风格字符串来初始化</li>
+<li>cin 来读取输入到string</li>
+<li>使用cout来显示string</li>
+<li>可以使用索引来访问string对象中的字符</li>
+</ul>
+<p>string对象和字符数组(也就是字符串)的主要区别时，string对象可以声明为简单变量，而不是数组。</p>
+<p>string对象可以自动调节字符串的大小。</p>
+<p>不能将一个数组的值赋给另一个数组</p>
+<p>但是可以将一个string对象赋值给另一个string对象</p>
+<p>string类简化了字符串合并操作，可以用 + 把两个string对象合并起来，还可以使用 +=</p>
+<p>string类的其他操作</p>
+<p>不使用string类时，也要进行复制字符串等操作。在头文件cstring中提供了这些函数。</p>
+<p><code>strcpy(charr1, charr2); // copy charr2 to charr1</code><br><code>strcat(charr1, charr2); // append contents of charr2 after charr1</code></p>
+<p>使用string类比使用字符数组更方便安全。</p>
+<p>str.size()返回string类的字符数量。</p>
+<p>string类I/O</p>
+<p>未赋值的数组的内容时未知的，用strlen()得到的长度可能不是0.</p>
+<p>而用户输入前，string的长度为0，这是未被初始化的string对象自动设置的。</p>
+<p>将一行输入读取到string 类中的代码为<code>getline(cin, str);</code></p>
+<p>istream类中没有处理string类对象的方法，<code>cin &gt;&gt; str;</code>这样的处理方法是使用string类的一个友元函数，将在11章介绍。</p>
+<p>其他形式字符串字面值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wchar_t title[] = L&quot;Chief Astrogator&quot;;</span><br><span class="line">char16_t name[] = u&quot;Felonia Ripova&quot;;</span><br><span class="line">char32_t car[] = U&quot;Humber Super Snipe&quot;;</span><br></pre></td></tr></table></figure>
+<p>此外C++11也支持UTF-8编码，使用前缀u8来表示</p>
+<p>C++11新增原始(raw)字符串：特殊字符将不带有其他含义，比如 \n \t “，输出时将直接输出这些字符。</p>
+<p><code>cout &lt;&lt; R&quot;(Jim &quot;King&quot; Tutt uses &quot;\n&quot; instead of endl.)&quot; &lt;&lt; endl;</code></p>
+<p>上面的语句将输出R”()” 括号中的内容，双引号也被视为普通字符</p>
+<p>在”和(之间可以加任意基本字符，在作为标识符</p>
+<p><code>cout &lt;&lt; R&quot;=-*(Hahaha \n (lalala) this ) won&#39;t be the end.)=-*&quot; &lt;&lt; endl;</code></p>
+<p>上面的语句就是用<code>R&quot;=-*/()=-*/&quot;</code>作为标识符</p>
+<p>注意：特殊字符不能增加在 “和(之间，如空格，括号，斜杠和转义序列</p>
+<ul>
+<li>结构简介</li>
+</ul>
+<p>结构是用户定义的类型，可以用来存储多种数据类型。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">inflatable</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">char</span> name[<span class="number">20</span>];</span><br><span class="line">	<span class="keyword">float</span> volume;</span><br><span class="line">	<span class="keyword">double</span> price;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>C++ 允许在声明结构时省略关键字struct<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">struct inflatable goose; // C need the struct</span><br><span class="line">inflatable vincent; // C++ dont</span><br></pre></td></tr></table></figure></p>
+<p>通过<code>.</code>来访问结构变量的成员<code>goose.name</code>，访问到的成员就是其类型的变量</p>
+<p>结构的声明和初始化</p>
+<ol>
+<li>在main()函数内部声明，放在main函数的开头，只能被main函数访问</li>
+<li>在main()函数前声明，外部声明，可以被所有函数访问到</li>
+</ol>
+<p>变量也可以在外部声明</p>
+<p>C++不提倡使用外部变量，但是提倡使用外部结构声明</p>
+<p>结构的初始化与数组相同</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">inflatable guest = </span><br><span class="line">&#123;</span><br><span class="line">	&quot;captainx&quot;,</span><br><span class="line">	1.88,</span><br><span class="line">	29.99</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>或是把数值都放在一行<code>inflatable guest = { &quot;captainx&quot;, 1.88, 29.99 };</code>也可以</p>
+<p>C++11也可以使用列表初始化，即省略上述等号，如果大括号中没有东西，则所有变量被初始化为0，不允许缩窄类型。</p>
+<p>string类也可以作为成员的类型，使用std::string，让结构能够访问到std名称空间。</p>
+<p>结构可以作为参数类型传入函数，也可以作为函数的返回类型。</p>
+<p>可以使用赋值运算符将结构赋值给另一个同类型的结构。</p>
+<ul>
+<li>结构数组</li>
+</ul>
+<p>可以创建元素为结构的数组。</p>
+<p>初始化结构数组：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">inflatable guests[<span class="number">2</span>] =</span><br><span class="line">&#123;</span><br><span class="line">	&#123;<span class="string">"Bambi"</span>, <span class="number">0.5</span>, <span class="number">21.99</span>&#125;,</span><br><span class="line">	&#123;<span class="string">"Godzilla, 2000, 565.99"</span>&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>可以按自己喜欢的方式来格式化。</p>
+<ul>
+<li>结构中的位字段</li>
+</ul>
+<p>C++也允许指定占用特定位数的结构成员，方便了创建与某个硬件设备上的寄存器对应的数据结构</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">torgle_register</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">int</span> SN : <span class="number">4</span>;	<span class="comment">// 4 bits for SN value</span></span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">int</span> : <span class="number">4</span>;	<span class="comment">// 4 bits unused</span></span><br><span class="line">	<span class="keyword">bool</span> goodIn : <span class="number">1</span>;	<span class="comment">// valid input 1 bit</span></span><br><span class="line">	<span class="keyword">bool</span> goodTorgle : <span class="number">1</span>;	<span class="comment">// successful torgling</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>可以使用一般结构的方法来初始化这些字段。</p>
+<ul>
+<li>共用体</li>
+</ul>
+<p>union 类似结构，可以存储不同数据类型，但是只能同事存储其中的一种类型。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">union one4all</span><br><span class="line">&#123;</span><br><span class="line">	int int_val;</span><br><span class="line">	long long_val;</span><br><span class="line">	double double_val;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>可以用one4all来存储int, long or double，但是不能同时进行。</p>
+<p>当已经存有一种类型值的union被赋予另一个类型的值时，之前的值就会被丢弃。</p>
+<p>union的大小是能够存储的所有值中最大的。</p>
+<p>union的用途是：在数据使用多种格式时，可以节省空间。</p>
+<p>匿名共同体：没有名称的union，其成员是位于相同地址处的变量。</p>
+<ul>
+<li>枚举</li>
+</ul>
+<p><code>enum</code>工具，可以用来代替const来创建符号常量。</p>
+<p>还允许定义新类型，但必须按严格的限制进行。</p>
+<p><code>enum spectrum {red, orange, yellow, green, blue, violet, indigo, ultraviolet};</code></p>
+<p>上面的语句定义了一个枚举类型spectrum，默认将整数值赋给枚举量，从0开始依次递增。</p>
+<p>声明的枚举变量只能被赋值为定义中包含的值，否则编译器将会报错。</p>
+<p>枚举变量只有赋值运算符，没有其它运算符可以使用。</p>
+<p><code>spectrum band;</code></p>
+<p>如果有语句<code>band = orange + red;</code></p>
+<p><code>orange + red</code>这个表达式是合法的，orange和red被转化为1和0进行计算，但是类型是int，不能赋值给band</p>
+<p>可以通过强制类型转换，把int转化为枚举中的值，则可以赋值给枚举变量</p>
+<p><code>band = spectrum(3);</code></p>
+<p>如果对一个不在枚举值范围的int进行强制类型转换，结果将是不确定的</p>
+<p><code>band = spectrum(99999);</code></p>
+<p>设置枚举量的值</p>
+<p><code>enum bits{one = 1, two = 2, four = 4, eight =8};</code>可以使用赋值运算符来设置</p>
+<p><code>enum bigstep{first, second = 100, third};</code>可以只设置一些枚举量的值，其它的将被自动设置。</p>
+<p>枚举值的取值范围：</p>
+<p>最大值MAX：</p>
+<ol>
+<li>找到枚举量的最大值max</li>
+<li>找到一个2的幂x，x大于max，且是所有大于max的2的幂中最小的</li>
+<li>MAX = x - 1;</li>
+</ol>
+<p>最小值MIN：</p>
+<p>如果最小的枚举量不小于0，则MIN = 0;</p>
+<p>否则，按照MAX的计算方法计算，并添加负号（x-1变为 x+1）</p>
+<p>C++增加了作用域内枚举(scoped enumeration)第十章将介绍</p>
+<h4 id="2018-08-30"><a href="#2018-08-30" class="headerlink" title="2018-08-30"></a>2018-08-30</h4><h5 id="4-7-指针和自由存储空间"><a href="#4-7-指针和自由存储空间" class="headerlink" title="4.7 指针和自由存储空间"></a>4.7 指针和自由存储空间</h5><p>计算机存储信息时必须提供三种属性：</p>
+<ul>
+<li>信息存储的地址</li>
+<li>存储的值</li>
+<li>存储的类型</li>
+</ul>
+<p>指针：是一个变量，存储了值的地址。而不是值本身</p>
+<p>使用运算符<code>&amp;</code>获取变量的地址</p>
+<p>使用*来解除引用，即，获取地址所存储的值</p>
+<p>指针可以保存某个变量的地址，在这种情况下，指针和这个变量只不过是硬币的正反面，在内存中存储的位置时相同的</p>
+<p>指针的声明和初始化</p>
+<p><code>int *p_updates;</code></p>
+<p>这个语句表明：指针所指的内存地址存储的数据类型为int。</p>
+<p>也表明：p_updates是一个指针，同时，*p_updates是一个int型的变量。</p>
+<p>同时初始化多个指针时，每个指针都需要一个<code>*</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> higgens = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> * pt = &amp;hiddens;</span><br></pre></td></tr></table></figure>
+<p>上面的语句将*pt的值设置为5，pt的值设置为&amp;higgens</p>
+<p>创建指针时，计算机将分配用来存储地址的内存，而不会分配用来存储指针所指向数据的内存。</p>
+<p>这样指针就将是一个随机值，给这个指针赋值，可能会改变内存中一些重要位置的值，会造成难以追踪的错误。</p>
+<p>地址虽然是一个整数，但是指针不是整型。不能使用算术运算符来计算，因为计算出的地址没有任何意义。</p>
+<p>C++不允许把整数赋值给指针，只能通过强制类型转换的方式来赋值。</p>
+<p><code>pt = (int *) 0xB8000000;</code></p>
+<p>使用new运算符来分配地址<code>int * pt = new int;</code></p>
+<p>new int 在内存中寻找了一块长度适合的内存，返回给指针pt。</p>
+<p>对于两个指针，他们的长度（sizeof）是相同的，因为他们都是一个地址</p>
+<p>而他们指向的变量，也可能是解除引用后的变量，可能是长度不同的类型。</p>
+<p>new分配的内存和常规变量声明分配的内存区域不同。</p>
+<p>变量的值都存储在栈(stack)中，而new从堆(heap)或自由存储区(free store)中分配内存</p>
+<p>使用delete释放内存</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int * ps = new int;</span><br><span class="line">...</span><br><span class="line">delete ps;</span><br></pre></td></tr></table></figure>
+<p>这将释放ps指向的内存，而不会删除指针本身，可以重新给指针分配内存。</p>
+<p>一定要配对使用new和delete，否则将发生内存泄露，也就是被分配的内存再也无法使用。</p>
+<p>不能用delete来释放不是new分配的内存（比如某个指向变量的指针，它的地址时初始化变量时分配的）</p>
+<p>不要创建两个指向同一个内存块的指针，这将增加错误地删除同一个内存块两次的可能性。</p>
+<p>使用new来创建动态数组</p>
+<p>对于复合类型 – 数组，结构，字符串，应当使用new来分配内存。这样可以减少内存的占用。</p>
+<p><code>int *psome = new int [10];</code>创建动态数组；</p>
+<p><code>delete [] psome;</code> 释放动态数组内存。</p>
+<p>psome是指向数组第一个元素的指针。</p>
+<p>在访问数组元素时，可以直接将指针名作为数组名使用，例如<code>psome[0]</code>表示数组第一个元素，<code>psome[1]</code>表示第二个元素。</p>
+<p>但是指针和数组名有本质上的差别：</p>
+<ul>
+<li>指针是变量，因此可以修改它的值</li>
+<li>将指针的值+1，指针将指向数组的下一个元素，如果是int数组，指针就会挪动(sizeof int)个字节，也就是说，现在使用指针名来访问数组元素，现在的第一个元素将是原来的第二个元素。</li>
+</ul>
+<ul>
+<li>指针、数组、指针算术</li>
+</ul>
+<p>C++将数组名解释为地址，指向数组的第一个元素。</p>
+<p>使用数组索引时，C++将做转换：</p>
+<p><code>数组名[i] --&gt; *( 数组名 + i )</code></p>
+<p><code>指针名[i] --&gt; *( 指针名 + i )</code></p>
+<p>因此，在使用new来创建数组时，可以把指针当做数组名。</p>
+<p>数组名和指针的区别：</p>
+<ol>
+<li>指针是变量，可以修改，而数组名是常量；</li>
+<li>sizeof返回，数组名是数组的长度，而指针是地址的长度。</li>
+<li>对数组名取地址(&amp;)时，返回的是整个数组的地址，和数组名所指的地址时相同的；而对指针取地址时，将返回指针变量的地址。</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">short</span> tell[<span class="number">10</span>];</span><br><span class="line"><span class="keyword">short</span> (*pas)[<span class="number">20</span>] = &amp;tell;</span><br></pre></td></tr></table></figure>
+<p>使用上面的语句后，*pas将和tell等价。</p>
+<hr>
+<ul>
+<li>指针&amp;数组小节：</li>
+</ul>
+<ol>
+<li>声明<code>typeName * pointerName;</code></li>
+<li>赋值 <code>double bubble = 3.2;</code><ol>
+<li><code>double * pn;</code>  <code>pn = &amp;bubble;</code></li>
+<li><code>double * pa;</code>  <code>pa = new double[30];</code></li>
+<li><code>char * pc;</code>  <code>pc = new char;</code></li>
+</ol>
+</li>
+<li>解除引用<code>*pt = &#39;S&#39;;</code></li>
+<li>指针和指针的指向<code>int *pt;</code>，pt是指针，而*pt是一个int变量</li>
+<li>数组名被视为第一个元素的地址</li>
+<li>指向数组的指针进行数学运算时，如<code>pt = pt + 1;</code>，+1的结果是在原来的地址上增加所指的数据类型的长度</li>
+<li>数组的动态联编和静态联编：在声明时指出数组的长度称为静态联编；使用new来创建数组，让数组的长度在程序运行时再确定，使用这样的方式必须用delete []释放内存</li>
+<li>使用方括号数组表示法等同于对指针解除引用。</li>
+</ol>
+<ul>
+<li>指针和字符串</li>
+</ul>
+<p>给cout一个字符串的地址（也就是数组名），cout将连续打印字符，直到遇到’\0’</p>
+<p>在C++中，用<code>&quot;&quot;</code>括起的字符串和数组名一样，也是第一个元素的地址</p>
+<p>一般给cout一个指针，它将打印地址，如果指针的类型是char *，将显示指向的字符串。</p>
+<p>如果想要显示字符串的地址，就要使用强制类型转换，将char *转换成别的类型指针。</p>
+<p>想要复制字符串，用赋值的方法是不行的，因为这样只是将字符串的地址存储到新的变量中。内存里还是只有一个字符串。</p>
+<p>需要使用strcpy()函数，把第二个参数（数组名）复制到第一个参数（地址）。</p>
+<p>但是如果第二个参数过大，会导致栈溢出。<code>strcpy(food, &quot;dwajwafhaofwiafjiajwfowaifjia&quot;);</code></p>
+<p>使用函数strncpy()可以避免这样的问题。</p>
+<p>strncpy()接受第三个参数，可以指出要复制的字符的数量。</p>
+<ul>
+<li>使用new创建动态结构</li>
+</ul>
+<p><code>flatable * pt = new flatable;</code></p>
+<p>用<code>pt-&gt;price</code>来访问成员，因为这个结构是没有名称的。</p>
+<p>如果已知名称，则使用句点来访问成员：<code>guest.price</code></p>
+<p><code>(*pt).price</code>也是合法的表达</p>
+<p>这样创建结构后，也应该用delete来释放内存。</p>
+<p>读取较长字符串时，可以声明一个大型数组，用来临时存储输入，然后使用strlen()获取具体的字符串长度，使用new char[strlen() + 1] 来创建和字符串等长的动态数组，这样就不用提前声明大量的大型数组来存储，可以节省很多内存。</p>
+<p>C++有三种管理内存的方式：</p>
+<ul>
+<li>自动存储：</li>
+</ul>
+<p>在函数内部的常规变量，称为自动变量。</p>
+<p>生存期从代码块开始，到代码块结束。</p>
+<p>自动变量被存储在栈中。</p>
+<p>执行代码块时，变量依次加入栈中，离开代码块时，以相反顺序出。LIFO</p>
+<ol start="2">
+<li>静态存储：</li>
+</ol>
+<p>全局变量或使用了static关键字声明的变量。</p>
+<p>变量的的生命周期从程序开始到程序结束。</p>
+<ol start="3">
+<li>动态存储</li>
+</ol>
+<p>new管理的内存池。</p>
+<p>C++中称为：自由存储空间(free store)或堆(heap)</p>
+<p>在栈中，自动添加和删除机制，使占用的内存时连续的。</p>
+<p>而new和delete可能使占用的自由存储区不连续。</p>
+<p>数组的替代品：</p>
+<ul>
+<li>模板类vector</li>
+</ul>
+<p>类似于string，也是动态数组，可以在运行阶段设置vector的长度。</p>
+<p><code>#include &lt;vector&gt;</code></p>
+<p><code>using namespace std;</code></p>
+<p><code>vector&lt;typeName&gt; vt(n_elem);</code>语句可以声明一个名为<code>vt</code>，元素数为<code>n_elem</code>的vector对象。<code>n_elem</code>可以是变量。</p>
+<ul>
+<li>模板类array(c++11)</li>
+</ul>
+<p>长度固定，在栈中存储，效率较高（和数组一样），更方便和安全。</p>
+<p><code>#include &lt;array&gt;</code></p>
+<p><code>using namespace std;</code></p>
+<p><code>array&lt;typeName, n_elem&gt; arr</code>语句创建一个名为arr的array对象，包含<code>n_elem</code>个元素</p>
+<p>但是<code>n_elem</code>不能是变量。</p>
+<p>C++不检查数组索引越界，所以会导致栈溢出问题。</p>
+<p>使用vector和array的.at()成员函数，就可以避免非法索引。</p>
+<p><code>a1.at(1) = 2.3;</code></p>
+<p>复习题：</p>
+<ol>
+<li>声明数据<ul>
+<li>char actor[30];</li>
+<li>short betsie[100];</li>
+<li>float chuck[13];</li>
+<li>long double dipsea[64];</li>
+</ul>
+</li>
+<li>使用array来声明<ul>
+<li>array&lt;char, 30&gt; actor;</li>
+<li>array&lt;short, 100&gt; betsie;</li>
+<li>array&lt;float, 13&gt; chuck;</li>
+<li>array<long 64="" double,=""> dipsea;</long></li>
+</ul>
+</li>
+<li><code>int n_go[5] = {1, 3, 5, 7, 9};</code></li>
+<li><code>int even = n_go[0] + n_go[4];</code></li>
+<li><code>cout &lt;&lt; ideas[1] &lt;&lt; endl;</code></li>
+<li><code>char s_food[13] = &quot;cheeseburger&quot;;</code>13可以省去</li>
+<li><code>string food = &quot;Waldorf Salad&quot;;</code></li>
+<li><p>结构</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">fish</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">string</span> type;</span><br><span class="line">	<span class="keyword">int</span> angs;</span><br><span class="line">	<span class="keyword">double</span> length;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>fish f = {&quot;Liyu&quot;, 3, 8.2};</code></p>
+</li>
+<li><code>enum Response{No, Yes, Maybe};</code></li>
+<li><code>double *pd = &amp;ted; cout &lt;&lt; *pd &lt;&lt; endl;</code></li>
+<li><code>float *pf = treacle; cout &lt;&lt; *pf &lt;&lt; endl &lt;&lt; *(pf + 9) &lt;&lt; endl;</code></li>
+<li><p>动态数组</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">int</span> n_arr;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"Enter a Number which bigger than 0"</span>;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n_arr;</span><br><span class="line">	<span class="keyword">int</span> *pn = <span class="keyword">new</span> <span class="keyword">int</span>[n_arr];</span><br><span class="line">	<span class="comment">// use vector</span></span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v_arr(n_arr);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>有效，会打印出第一个字符的地址。</p>
+</li>
+<li><code>fish * f_dyn = new fish; cout &lt;&lt; f_dyn-&gt;length &lt;&lt; endl;</code></li>
+<li>1.输入的字符串超过80可能导致栈溢出 2.不能把带有空白的输入读入address</li>
+<li><code>std::vector&lt;std::string&gt; v_str(10);std::array&lt;std::string, 10&gt; a_str;</code>头文件：vector,string, array</li>
+</ol>
 
       
     </div>
@@ -1011,7 +1392,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#2018-08-27"><span class="nav-number">1.</span> <span class="nav-text">2018-08-27</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第一章"><span class="nav-number">1.1.</span> <span class="nav-text">第一章</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第二章-开始学习C"><span class="nav-number">1.2.</span> <span class="nav-text">第二章 开始学习C++</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2018-08-28"><span class="nav-number">2.</span> <span class="nav-text">2018-08-28</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第三章-处理数据"><span class="nav-number">2.1.</span> <span class="nav-text">第三章 处理数据</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#2018-08-27"><span class="nav-number">1.</span> <span class="nav-text">2018-08-27</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第一章"><span class="nav-number">1.1.</span> <span class="nav-text">第一章</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第二章-开始学习C"><span class="nav-number">1.2.</span> <span class="nav-text">第二章 开始学习C++</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2018-08-28"><span class="nav-number">2.</span> <span class="nav-text">2018-08-28</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第三章-处理数据"><span class="nav-number">2.1.</span> <span class="nav-text">第三章 处理数据</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2018-08-29"><span class="nav-number">3.</span> <span class="nav-text">2018-08-29</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第四章-复合类型"><span class="nav-number">3.1.</span> <span class="nav-text">第四章 复合类型</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2018-08-30"><span class="nav-number">4.</span> <span class="nav-text">2018-08-30</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#4-7-指针和自由存储空间"><span class="nav-number">4.1.</span> <span class="nav-text">4.7 指针和自由存储空间</span></a></li></ol></li></ol></div>
             
 
           </div>
